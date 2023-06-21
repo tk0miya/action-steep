@@ -1,0 +1,43 @@
+name: "Run steep with reviewdog"
+description: "🐶 Run steep with reviewdog on pull requests to improve code review experience."
+author: "tk0miya"
+inputs:
+  github_token:
+    description: "GITHUB_TOKEN"
+    default: ${{ github.token }}
+  level:
+    description: "Report level for reviewdog [info,warning,error]"
+    default: "error"
+  reporter:
+    description: |
+      Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].
+      Default is github-pr-review.
+    default: "github-pr-review"
+  filter_mode:
+    description: |
+      Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
+      Default is added.
+    default: "added"
+  use_bundler:
+    description: "Run steep with bundle exec. Default: `true`"
+    default: "true"
+  instal_rbs_collection:
+    description: "Install rbs collection before steep check. Default: `true`"
+    default: "true"
+  steep_options:
+    description: "Options to `steep check` command. ex. `--steepfile=PATH`"
+    default: ""
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script.sh
+      shell: sh
+      env:
+        INPUT_GITHUB_TOKEN: ${{ inputs.github_token }}
+        INPUT_LEVEL: ${{ inputs.level }}
+        INPUT_REPORTER: ${{ inputs.reporter }}
+        INPUT_FILTER_MODE: ${{ inputs.filter_mode }}
+        INPUT_USE_BUNDLER: ${{ inputs.use_bundler }}
+branding:
+  icon: check-circle
+  color: blue
