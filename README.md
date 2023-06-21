@@ -29,6 +29,14 @@ Default is `added`.
 
 Optional. Run Steep with bundle exec. Default: `true`.
 
+### `instal_rbs_collection`
+
+Optional. Install rbs collection before steep check. Default: `true`.
+
+### `steep_options`
+
+Optional. Options to `steep check` command. ex. `--steepfile=PATH`. Default: ""
+
 ## Example usage
 
 ```yml
