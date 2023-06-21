@@ -52,7 +52,7 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2.0
-      - name: erb-lint
+      - name: steep check
         uses: tk0miya/action-steep@v1
 ```
 
