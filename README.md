@@ -43,8 +43,8 @@ Optional. Options to `steep check` command. ex. `--steepfile=PATH`. Default: ""
 name: reviewdog
 on: [pull_request]
 jobs:
-  erb-lint:
-    name: runner / erb-lint
+  steep:
+    name: runner / steep
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
